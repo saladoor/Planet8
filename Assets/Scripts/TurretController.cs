@@ -15,10 +15,8 @@ public class TurretController : MonoBehaviour {
 
 	void shootBullet()
 	{
-		float spawnPosX = transform.position.x;
-		float spawnPosY = transform.position.y;
+		Vector2 spawnPos = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y - 0.64f), player.position, 1.0f); //Hardcoded radius!
 
-		Vector2 spawnPos = new Vector2(spawnPosX, spawnPosY);
 		Vector2 movement = new Vector2(player.position.x - transform.position.x, player.position.y - transform.position.y);
 		Object inst = Instantiate(b, spawnPos, Quaternion.identity);
 		GameObject bullet = inst as GameObject;

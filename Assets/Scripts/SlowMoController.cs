@@ -33,15 +33,15 @@ public class SlowMoController : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Threat")
-        {
-            threatsNearby--;
-            if (threatsNearby < 1)
-            {
-                Time.timeScale = 1.0f;
+		if (col.gameObject.tag == "Threat")
+		{
+			threatsNearby--;
+			if (threatsNearby < 1)
+			{
+				Time.timeScale = 1.0f;
 				Time.fixedDeltaTime = 0.02F;
 				pc.slowmoEnd = true;
 			}
-        }
-    }
+		}
+	}
 }

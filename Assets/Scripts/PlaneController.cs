@@ -24,6 +24,8 @@ public class PlaneController : MonoBehaviour
 	public bool slowmoEnd = false;
 	public float slowdown;
 
+	private bool recentlyTransitioned = false;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -31,6 +33,30 @@ public class PlaneController : MonoBehaviour
 		noMoveRotMultiplier = initNoMoveRotMultiplier;
 		movespeed = initMovespeed;
 		maxSpeed = initMaxSpeed;
+	}
+
+	void OnTriggerEnter2D(Collider2D col)
+	{
+		//Used for transitions
+		if (col.tag == "Transition" && recentlyTransitioned == false)
+		{
+			recentlyTransitioned = true;
+			TransitionController transPair = col.GetComponent<TransitionController>().transPair;
+			float secuMove = transPair.securityMove;
+			float rotZ = transPair.transform.rotation.eulerAngles.z;
+
+			//move the plane to pair position and then move it slightly outwards from along the pairs z-angle.
+			Vector3 v = (new Vector3(Mathf.Cos(rotZ * Mathf.Deg2Rad), Mathf.Sin(rotZ * Mathf.Deg2Rad), 0))*secuMove;
+			transform.position = transPair.transform.position + v;
+		}
+	}
+
+	void OnTriggerExit2D(Collider2D col)
+	{
+		if (col.tag == "Transition" && recentlyTransitioned == true)
+		{
+			recentlyTransitioned = false;
+		}
 	}
 
 	void FixedUpdate()
