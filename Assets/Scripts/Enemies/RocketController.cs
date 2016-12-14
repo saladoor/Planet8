@@ -11,6 +11,7 @@ public class RocketController : MonoBehaviour {
 
 	private float playerToTheRight = 0;
 	private Rigidbody2D rb;
+    private bool deathAnim = false;
 
 	// Use this for initialization
 	void Start () {
@@ -21,7 +22,10 @@ public class RocketController : MonoBehaviour {
 	{
 		if (!(col.tag == "Player" || col.tag == "slowmo"))
 		{
-			transform.position = new Vector3(0f, 15f, 0f);
+            deathAnim = true;
+            GetComponent<AudioSource>().Play();
+
+			transform.position = new Vector3(0f, 21f, 0f);
 			rb.velocity = new Vector3(0f, 0f, 0f);
             IEnumerator c = coDestroy(this.gameObject);
             StartCoroutine(c);

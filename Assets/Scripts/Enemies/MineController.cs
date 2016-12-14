@@ -6,7 +6,7 @@ public class MineController : MonoBehaviour {
     {
         if (!(col.tag == "Player" || col.tag == "slowmo"))
         {
-            transform.position = new Vector3(0f, 15f, 0f);
+            transform.position = new Vector3(0f, 19f, 0f);
             IEnumerator c = coDestroy(this.gameObject);
             StartCoroutine(c);
         }

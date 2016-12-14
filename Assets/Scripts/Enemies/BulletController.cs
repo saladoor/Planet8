@@ -16,6 +16,8 @@ public class BulletController : MonoBehaviour {
 	{
 		if(!(col.tag == "Player" || col.tag == "slowmo"))
 		{
+            //StartCoroutine(freezeFrame(0.02f));
+
 			cc.transform.position = new Vector3(0f, 15f, 0f);
 			rb.velocity = new Vector3(0f, 0f, 0f);
             IEnumerator c = coDestroy(this.gameObject);
@@ -27,6 +29,15 @@ public class BulletController : MonoBehaviour {
     {
         yield return new WaitForSecondsRealtime(1);
         Destroy(g);
+        yield return null;
+    }
+
+    IEnumerator freezeFrame(float sec)
+    {
+        float temp = Time.timeScale;
+        Time.timeScale = 0.000001f;
+        yield return new WaitForSecondsRealtime(sec);
+        Time.timeScale = temp;
         yield return null;
     }
 }
