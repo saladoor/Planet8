@@ -69,6 +69,7 @@
     <Compile Include="Assets\Scripts\BulletController.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\DodgeThisController.cs" />
+    <Compile Include="Assets\Scripts\FriendlyBulletController.cs" />
     <Compile Include="Assets\Scripts\MineController.cs" />
     <Compile Include="Assets\Scripts\PlaneController.cs" />
     <Compile Include="Assets\Scripts\RocketController.cs" />

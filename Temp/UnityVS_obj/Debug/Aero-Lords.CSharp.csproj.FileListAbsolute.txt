@@ -1,1 +1,15 @@
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_bin\Debug\Assembly-CSharp.dll
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_bin\Debug\Assembly-CSharp.pdb
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_bin\Debug\UnityEditor.dll
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_bin\Debug\UnityEngine.Analytics.dll
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_bin\Debug\UnityEngine.dll
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_bin\Debug\UnityEngine.Networking.dll
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_bin\Debug\UnityEngine.UI.dll
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_bin\Debug\UnityEngine.xml
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_bin\Debug\UnityEngine.UI.xml
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_bin\Debug\UnityEngine.Networking.xml
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_bin\Debug\UnityEngine.Analytics.xml
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_bin\Debug\UnityEditor.xml
 C:\Users\Mads\Aero-Lords\Temp\UnityVS_obj\Debug\Aero-Lords.CSharp.csprojResolveAssemblyReference.cache
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_obj\Debug\Assembly-CSharp.dll
+C:\Users\Mads\Aero-Lords\Temp\UnityVS_obj\Debug\Assembly-CSharp.pdb
