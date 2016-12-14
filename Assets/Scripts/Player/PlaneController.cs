@@ -60,8 +60,6 @@ public class PlaneController : MonoBehaviour
         {
             playerHealth.TakeDamage(15);
         }
-
-
     }
 
     void OnTriggerExit2D(Collider2D col)
