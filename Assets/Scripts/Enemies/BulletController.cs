@@ -3,7 +3,7 @@ using System.Collections;
 
 public class BulletController : MonoBehaviour {
 
-	public Rigidbody2D rb;
+    public Rigidbody2D rb;
 	public CircleCollider2D cc;
 	public float bulletSpeed = 2.0F;
 
@@ -23,7 +23,12 @@ public class BulletController : MonoBehaviour {
             IEnumerator c = coDestroy(this.gameObject);
             StartCoroutine(c);
 		}
-	}
+        if (col.tag == "FriendlyBullet")
+        {
+            PlayerScore.score += PlayerScore.bulletScore    ;   
+        }
+
+    }
 
     IEnumerator coDestroy(GameObject g)
     {

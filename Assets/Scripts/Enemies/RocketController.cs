@@ -30,7 +30,11 @@ public class RocketController : MonoBehaviour {
             IEnumerator c = coDestroy(this.gameObject);
             StartCoroutine(c);
         }
-	}
+        if (col.tag == "FriendlyBullet")
+        {
+            PlayerScore.score += PlayerScore.rocketScore;
+        }
+    }
 
     IEnumerator coDestroy(GameObject g)
     {
