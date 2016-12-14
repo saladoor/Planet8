@@ -15,7 +15,7 @@ public class FriendlyBulletController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (!(col.tag == "Player" || col.tag == "slowmo"))
+        if (!(col.tag == "Player" || col.tag == "slowmo" || col.tag == "FriendlyBullet"))
         {
             cc.transform.position = new Vector3(0f, 15f, 0f);
             rb.velocity = new Vector3(0f, 0f, 0f);
