@@ -17,7 +17,7 @@ public class PlaneController : MonoBehaviour
 	public float slowmoRotationMultiplier = 1.0f;
 	public float slowmoNoMoveRotMultiplier = 0.65f;
 	public float slowmoMovespeedMultiplier = 10.0f;
-	public float slowMoMaxSpeedMultiplier = 0.66f;
+	public float slowMoMaxSpeedMultiplier = 0.65f;
 
 	private Rigidbody2D rb;
 	public bool slowmoStart = false;
@@ -25,6 +25,8 @@ public class PlaneController : MonoBehaviour
 	public float slowdown;
 
 	private bool recentlyTransitioned = false;
+
+	public GameObject b; //Bullet object
 
 	void Start()
 	{
@@ -56,6 +58,16 @@ public class PlaneController : MonoBehaviour
 		if (col.tag == "Transition" && recentlyTransitioned == true)
 		{
 			recentlyTransitioned = false;
+		}
+	}
+
+	void Update()
+	{
+		if (Input.GetKeyDown("space"))
+		{
+				Object inst = Instantiate(b, transform.position, Quaternion.identity);
+				GameObject bullet = inst as GameObject;
+				bullet.GetComponent<FriendlyBulletController>().shoot(transform.up);
 		}
 	}
 

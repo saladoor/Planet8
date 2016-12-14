@@ -7,7 +7,7 @@ public class MineController : MonoBehaviour {
 	{
 		if (!(col.tag == "Player" || col.tag == "slowmo"))
 		{
-			Destroy(this.gameObject);
+			transform.position = new Vector3(0f, 15f, 0f);
 		}
 	}
 }
