@@ -1,7 +1,7 @@
-﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2015
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Aero-Lords.CSharp", "Aero-Lords.CSharp.csproj", "{9BC0F372-4625-7C8D-D329-6A448CEDA34E}"
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2008
+
+Project("{0A779B90-F3DD-33E8-025B-7D701320964C}") = "Aero-Lords", "Assembly-CSharp.csproj", "{8A84DB69-912E-ACC0-775D-8FD447BA883D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -9,12 +9,15 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{9BC0F372-4625-7C8D-D329-6A448CEDA34E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{9BC0F372-4625-7C8D-D329-6A448CEDA34E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{9BC0F372-4625-7C8D-D329-6A448CEDA34E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{9BC0F372-4625-7C8D-D329-6A448CEDA34E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8A84DB69-912E-ACC0-775D-8FD447BA883D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8A84DB69-912E-ACC0-775D-8FD447BA883D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8A84DB69-912E-ACC0-775D-8FD447BA883D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8A84DB69-912E-ACC0-775D-8FD447BA883D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(MonoDevelopProperties) = preSolution
+		StartupItem = Assembly-CSharp.csproj
 	EndGlobalSection
 EndGlobal
