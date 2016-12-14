@@ -10,6 +10,10 @@ public class MineController : MonoBehaviour {
             IEnumerator c = coDestroy(this.gameObject);
             StartCoroutine(c);
         }
+        if (col.tag == "FriendlyBullet")
+        {
+            PlayerScore.score += PlayerScore.mineScore;
+        }
     }
 
     IEnumerator coDestroy(GameObject g)

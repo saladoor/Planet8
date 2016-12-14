@@ -54,6 +54,8 @@
      <Compile Include="Assets\Scripts\Map\TransitionController.cs" />
      <Compile Include="Assets\Scripts\Player\FriendlyBulletController.cs" />
      <Compile Include="Assets\Scripts\Player\PlaneController.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerHealth.cs" />
+     <Compile Include="Assets\Scripts\Player\PlayerScore.cs" />
      <Compile Include="Assets\Scripts\Player\SlowMoController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>

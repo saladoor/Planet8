@@ -26,6 +26,7 @@ public class PlaneController : MonoBehaviour
 
 	private bool recentlyTransitioned = false;
 
+    PlayerHealth playerHealth;
 	public GameObject b; //Bullet object
 
 	void Start()
@@ -35,6 +36,7 @@ public class PlaneController : MonoBehaviour
 		noMoveRotMultiplier = initNoMoveRotMultiplier;
 		movespeed = initMovespeed;
 		maxSpeed = initMaxSpeed;
+        playerHealth = GetComponent<PlayerHealth>();
 	}
 
 	void OnTriggerEnter2D(Collider2D col)
@@ -51,7 +53,13 @@ public class PlaneController : MonoBehaviour
 			Vector3 v = (new Vector3(Mathf.Cos(rotZ * Mathf.Deg2Rad), Mathf.Sin(rotZ * Mathf.Deg2Rad), 0))*secuMove;
 			transform.position = transPair.transform.position + v;
 		}
-	}
+        else if  (col.tag == "Threat")
+        {
+            playerHealth.TakeDamage(15);
+        }
+
+
+    }
 
 	void OnTriggerExit2D(Collider2D col)
 	{
