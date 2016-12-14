@@ -24,6 +24,9 @@ public class PlaneController : MonoBehaviour
 	public bool slowmoEnd = false;
 	public float slowdown;
 
+    public float fireRate = 0.2f;
+    private float nextActionTime = 0.0f;
+
 	private bool recentlyTransitioned = false;
 
 	public GameObject b; //Bullet object
@@ -35,7 +38,7 @@ public class PlaneController : MonoBehaviour
 		noMoveRotMultiplier = initNoMoveRotMultiplier;
 		movespeed = initMovespeed;
 		maxSpeed = initMaxSpeed;
-	}
+    }
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
@@ -61,15 +64,19 @@ public class PlaneController : MonoBehaviour
 		}
 	}
 
-	void Update()
-	{
-		if (Input.GetKeyDown("space"))
-		{
-				Object inst = Instantiate(b, transform.position, Quaternion.identity);
-				GameObject bullet = inst as GameObject;
-				bullet.GetComponent<FriendlyBulletController>().shoot(transform.up);
-		}
-	}
+    void Update()
+    {
+        if (Input.GetKey("space"))
+        {
+            if (Time.time > nextActionTime)
+            {
+                nextActionTime = Time.time + fireRate;
+                Object inst = Instantiate(b, transform.position, Quaternion.identity);
+                GameObject bullet = inst as GameObject;
+                bullet.GetComponent<FriendlyBulletController>().shoot(transform.up);
+            }
+        }
+    }
 
 	void FixedUpdate()
 	{
