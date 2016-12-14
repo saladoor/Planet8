@@ -23,10 +23,19 @@ public class RocketController : MonoBehaviour {
 		{
 			transform.position = new Vector3(0f, 15f, 0f);
 			rb.velocity = new Vector3(0f, 0f, 0f);
-		}
+            IEnumerator c = coDestroy(this.gameObject);
+            StartCoroutine(c);
+        }
 	}
 
-	void FixedUpdate()
+    IEnumerator coDestroy(GameObject g)
+    {
+        yield return new WaitForSecondsRealtime(1);
+        Destroy(g);
+        yield return null;
+    }
+
+    void FixedUpdate()
 	{
 		float frontAngle = (Vector3.Angle(transform.up, playerTrans.position - transform.position));
 		float rightAngle = (Vector3.Angle(transform.right, playerTrans.position - transform.position));
