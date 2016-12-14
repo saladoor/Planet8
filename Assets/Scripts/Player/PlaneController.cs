@@ -64,7 +64,7 @@ public class PlaneController : MonoBehaviour
 
     }
 
-	void OnTriggerExit2D(Collider2D col)
+    void OnTriggerExit2D(Collider2D col)
 	{
 		if (col.tag == "Transition" && recentlyTransitioned == true)
 		{

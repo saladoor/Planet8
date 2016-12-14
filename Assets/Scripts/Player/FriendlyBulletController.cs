@@ -17,7 +17,7 @@ public class FriendlyBulletController : MonoBehaviour
     {
         if (!(col.tag == "Player" || col.tag == "slowmo" || col.tag == "FriendlyBullet"))
         {
-            cc.transform.position = new Vector3(0f, 15f, 0f);
+            cc.transform.position = new Vector3(0f, 17f, 0f);
             rb.velocity = new Vector3(0f, 0f, 0f);
             IEnumerator c = coDestroy(this.gameObject);
             StartCoroutine(c);
