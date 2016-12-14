@@ -18,7 +18,15 @@ public class BulletController : MonoBehaviour {
 		{
 			cc.transform.position = new Vector3(0f, 15f, 0f);
 			rb.velocity = new Vector3(0f, 0f, 0f);
-			//Destroy(this.gameObject);
+            IEnumerator c = coDestroy(this.gameObject);
+            StartCoroutine(c);
 		}
 	}
+
+    IEnumerator coDestroy(GameObject g)
+    {
+        yield return new WaitForSecondsRealtime(1);
+        Destroy(g);
+        yield return null;
+    }
 }
