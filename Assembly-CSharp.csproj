@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8A84DB69-912E-ACC0-775D-8FD447BA883D}</ProjectGuid>
+    <ProjectGuid>{6A12BEAC-9ECD-1209-85F5-F9B7A915B563}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -48,7 +48,6 @@
      <Compile Include="Assets\Scripts\BulletController.cs" />
      <Compile Include="Assets\Scripts\CameraController.cs" />
      <Compile Include="Assets\Scripts\DodgeThisController.cs" />
-     <Compile Include="Assets\Scripts\FriendlyBulletController.cs" />
      <Compile Include="Assets\Scripts\MineController.cs" />
      <Compile Include="Assets\Scripts\PlaneController.cs" />
      <Compile Include="Assets\Scripts\RocketController.cs" />
