@@ -6,7 +6,7 @@
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <RootNamespace></RootNamespace>
-    <ProjectGuid>{8A84DB69-912E-ACC0-775D-8FD447BA883D}</ProjectGuid>
+    <ProjectGuid>{6A12BEAC-9ECD-1209-85F5-F9B7A915B563}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <AssemblyName>Assembly-CSharp</AssemblyName>
@@ -45,16 +45,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Scripts\Camera\CameraController.cs" />
-     <Compile Include="Assets\Scripts\Enemies\BulletController.cs" />
-     <Compile Include="Assets\Scripts\Enemies\MineController.cs" />
-     <Compile Include="Assets\Scripts\Enemies\RocketController.cs" />
-     <Compile Include="Assets\Scripts\Enemies\TurretController.cs" />
-     <Compile Include="Assets\Scripts\Map\DodgeThisController.cs" />
-     <Compile Include="Assets\Scripts\Map\TransitionController.cs" />
-     <Compile Include="Assets\Scripts\Player\FriendlyBulletController.cs" />
-     <Compile Include="Assets\Scripts\Player\PlaneController.cs" />
-     <Compile Include="Assets\Scripts\Player\SlowMoController.cs" />
+     <Compile Include="Assets\Scripts\BulletController.cs" />
+     <Compile Include="Assets\Scripts\CameraController.cs" />
+     <Compile Include="Assets\Scripts\DodgeThisController.cs" />
+     <Compile Include="Assets\Scripts\MineController.cs" />
+     <Compile Include="Assets\Scripts\PlaneController.cs" />
+     <Compile Include="Assets\Scripts\RocketController.cs" />
+     <Compile Include="Assets\Scripts\SlowMoController.cs" />
+     <Compile Include="Assets\Scripts\TransitionController.cs" />
+     <Compile Include="Assets\Scripts\TurretController.cs" />
  <Reference Include="UnityEngine.UI">
  <HintPath>C:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
  </Reference>
