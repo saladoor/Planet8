@@ -14,7 +14,7 @@ public class BulletController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(!(col.tag == "Player" || col.tag == "slowmo"))
+		if(!(/*col.tag == "Player" || */col.tag == "slowmo"))
 		{
 			rb.velocity = new Vector3(0f, 0f, 0f);
 			GetComponent<AudioSource>().Play();
