@@ -28,7 +28,8 @@ public class RocketController : MonoBehaviour {
 		if (!(col.tag == "Player" || col.tag == "slowmo" || dead))
 		{
             dead = true;
-            GetComponent<AudioSource>().Play();
+			rb.velocity = new Vector3(0f, 0f, 0f);
+			GetComponent<AudioSource>().Play();
             IEnumerator c = coDestroy(this.gameObject);
             StartCoroutine(c);
         }
@@ -42,11 +43,10 @@ public class RocketController : MonoBehaviour {
     {
         GetComponent<SpriteRenderer>().transform.localScale = new Vector3(2,2,1);
 
-		GetComponent<Animator>().SetBool("dead", true); //Sets off the death animation
+		GetComponent<Animator>().SetBool("Dead", true); //Sets off the death animation
 		yield return new WaitForSeconds(0.5f); //8 (8/60) frames of animation later we move the plane
 
 		transform.position = new Vector3(0f, 21f, 0f); //Move gameobject
-		rb.velocity = new Vector3(0f, 0f, 0f);
 
 		yield return new WaitForSecondsRealtime(1);
         Destroy(g);

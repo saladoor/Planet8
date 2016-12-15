@@ -30,7 +30,7 @@ public class GameOverManager : MonoBehaviour
             anim.SetTrigger("GameOver");
 
             // .. increment a timer to count up to restarting.
-            restartTimer += Time.deltaTime;
+            restartTimer += Time.unscaledDeltaTime;
 
             // .. if it reaches the restart delay...
             if (restartTimer >= restartDelay)

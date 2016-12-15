@@ -16,11 +16,9 @@ public class BulletController : MonoBehaviour {
 	{
 		if(!(col.tag == "Player" || col.tag == "slowmo"))
 		{
-            //StartCoroutine(freezeFrame(0.02f));
-
-			cc.transform.position = new Vector3(0f, 15f, 0f);
 			rb.velocity = new Vector3(0f, 0f, 0f);
-            IEnumerator c = coDestroy(this.gameObject);
+			GetComponent<AudioSource>().Play();
+			IEnumerator c = coDestroy(this.gameObject);
             StartCoroutine(c);
 		}
         if (col.tag == "FriendlyBullet")
@@ -30,9 +28,19 @@ public class BulletController : MonoBehaviour {
 
     }
 
-    IEnumerator coDestroy(GameObject g)
+	void Update()
+	{
+		GetComponent<AudioSource>().pitch = Time.timeScale;
+	}
+
+	IEnumerator coDestroy(GameObject g)
     {
-        yield return new WaitForSecondsRealtime(1);
+		GetComponent<Animator>().SetBool("Dead", true); //Sets off the death animation
+		yield return new WaitForSeconds(0.5f); //8 (8/60) frames of animation later we move the plane
+
+		cc.transform.position = new Vector3(0f, 15f, 0f);
+
+		yield return new WaitForSecondsRealtime(1);
         Destroy(g);
         yield return null;
     }

@@ -59,21 +59,21 @@ public class PlaneController : MonoBehaviour
 		}
         else if  (col.tag == "Threat")
         {
-            GetComponent<AudioSource>().Play();
             playerHealth.TakeDamage(15);
             if(playerHealth.currentHealth < 0)
             {
-                IEnumerator c = coDestroy(this.gameObject);
+				//GetComponent<AudioSource>().pitch = Time.timeScale;
+				GetComponent<AudioSource>().Play();
+				IEnumerator c = coDestroy(this.gameObject);
                 StartCoroutine(c);
-            }
+			}
         }
     }
 
     IEnumerator coDestroy(GameObject g)
     {
-        GetComponent<SpriteRenderer>().enabled = false;
-
-        GetComponentInChildren<Animator>().SetBool("dead", true); //Sets off the death animation
+		GetComponent<SpriteRenderer>().transform.localScale = new Vector3(1, 1, 1);
+		GetComponent<Animator>().SetBool("Dead", true); //Sets off the death animation
         //yield return new WaitForSeconds(0.5f); //8 (8/60) frames of animation later we move the plane
 
         //transform.position = new Vector3(0f, 21f, 0f); //Move gameobject
@@ -92,9 +92,9 @@ public class PlaneController : MonoBehaviour
 		}
 	}
 
-    void Update()
+	void Update()
     {
-        if (Input.GetKey("space"))
+		if (Input.GetKey("space"))
         {
             if (Time.time > nextActionTime)
             {
