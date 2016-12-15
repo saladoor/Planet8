@@ -11,22 +11,24 @@ public class RocketController : MonoBehaviour {
 
 	private float playerToTheRight = 0;
 	private Rigidbody2D rb;
-    private bool deathAnim = false;
+    private bool dead = false;
 
 	// Use this for initialization
 	void Start () {
 		rb = GetComponent<Rigidbody2D>();
 	}
 
+	void Update()
+	{
+		GetComponent<AudioSource>().pitch = Time.timeScale;
+	}
+
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (!(col.tag == "Player" || col.tag == "slowmo"))
+		if (!(col.tag == "Player" || col.tag == "slowmo" || dead))
 		{
-            deathAnim = true;
+            dead = true;
             GetComponent<AudioSource>().Play();
-
-			transform.position = new Vector3(0f, 21f, 0f);
-			rb.velocity = new Vector3(0f, 0f, 0f);
             IEnumerator c = coDestroy(this.gameObject);
             StartCoroutine(c);
         }
@@ -36,9 +38,19 @@ public class RocketController : MonoBehaviour {
         }
     }
 
+
+
     IEnumerator coDestroy(GameObject g)
     {
-        yield return new WaitForSecondsRealtime(1);
+		GetComponent<SpriteRenderer>().enabled = false;
+
+		GetComponentInChildren<Animator>().SetBool("dead", true); //Sets off the death animation
+		yield return new WaitForSeconds(0.5f); //8 (8/60) frames of animation later we move the plane
+
+		transform.position = new Vector3(0f, 21f, 0f); //Move gameobject
+		rb.velocity = new Vector3(0f, 0f, 0f);
+
+		yield return new WaitForSecondsRealtime(1);
         Destroy(g);
         yield return null;
     }
