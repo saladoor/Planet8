@@ -3,7 +3,6 @@ using System.Collections;
 
 public class PlaneController : MonoBehaviour
 {
-
 	private float rotationSpeed;
 	private float noMoveRotMultiplier;
 	private float movespeed;
@@ -32,6 +31,8 @@ public class PlaneController : MonoBehaviour
     PlayerHealth playerHealth;
 	public GameObject b; //Bullet object
 
+    private bool unkillable = false;
+
 	void Start()
 	{
 		rb = GetComponent<Rigidbody2D>();
@@ -58,8 +59,29 @@ public class PlaneController : MonoBehaviour
 		}
         else if  (col.tag == "Threat")
         {
+            GetComponent<AudioSource>().Play();
             playerHealth.TakeDamage(15);
+            if(playerHealth.currentHealth < 0)
+            {
+                IEnumerator c = coDestroy(this.gameObject);
+                StartCoroutine(c);
+            }
         }
+    }
+
+    IEnumerator coDestroy(GameObject g)
+    {
+        GetComponent<SpriteRenderer>().enabled = false;
+
+        GetComponentInChildren<Animator>().SetBool("dead", true); //Sets off the death animation
+        //yield return new WaitForSeconds(0.5f); //8 (8/60) frames of animation later we move the plane
+
+        //transform.position = new Vector3(0f, 21f, 0f); //Move gameobject
+        //rb.velocity = new Vector3(0f, 0f, 0f);
+
+        //yield return new WaitForSecondsRealtime(1);
+        //Destroy(g);
+        yield return null;
     }
 
     void OnTriggerExit2D(Collider2D col)
@@ -80,6 +102,19 @@ public class PlaneController : MonoBehaviour
                 Object inst = Instantiate(b, transform.position, Quaternion.identity);
                 GameObject bullet = inst as GameObject;
                 bullet.GetComponent<FriendlyBulletController>().shoot(transform.up);
+            }
+        }
+
+        if (Input.GetKeyDown("u"))
+        {
+            if (!unkillable)
+            {
+                playerHealth.currentHealth = System.Int32.MaxValue;
+                unkillable = true;
+            } else
+            {
+                playerHealth.currentHealth = 100;
+                unkillable = false;
             }
         }
     }

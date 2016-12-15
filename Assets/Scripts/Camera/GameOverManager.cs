@@ -1,9 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameOverManager : MonoBehaviour
 {
     public PlayerHealth playerHealth;       // Reference to the player's health.
-    public float restartDelay = 5f;         // Time to wait before restarting the level
+    public float restartDelay = 3f;         // Time to wait before restarting the level
+
+    public Vector2 startingPoint = new Vector2(0f,0f);
+    public PlaneController player;
 
 
     Animator anim;                          // Reference to the animator component.
@@ -32,7 +36,8 @@ public class GameOverManager : MonoBehaviour
             if (restartTimer >= restartDelay)
             {
                 // .. then reload the currently loaded level.
-                Application.LoadLevel(Application.loadedLevel);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+                //Application.LoadLevel(Application.loadedLevel);
             }
         }
     }

@@ -11,7 +11,7 @@ public class RocketController : MonoBehaviour {
 
 	private float playerToTheRight = 0;
 	private Rigidbody2D rb;
-    private bool dead = false;
+    public bool dead = false;
 
 	// Use this for initialization
 	void Start () {
@@ -38,13 +38,11 @@ public class RocketController : MonoBehaviour {
         }
     }
 
-
-
     IEnumerator coDestroy(GameObject g)
     {
-		GetComponent<SpriteRenderer>().enabled = false;
+        GetComponent<SpriteRenderer>().transform.localScale = new Vector3(2,2,1);
 
-		GetComponentInChildren<Animator>().SetBool("dead", true); //Sets off the death animation
+		GetComponent<Animator>().SetBool("dead", true); //Sets off the death animation
 		yield return new WaitForSeconds(0.5f); //8 (8/60) frames of animation later we move the plane
 
 		transform.position = new Vector3(0f, 21f, 0f); //Move gameobject
