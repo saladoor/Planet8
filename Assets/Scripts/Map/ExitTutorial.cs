@@ -6,6 +6,9 @@ public class ExitTutorial : MonoBehaviour
 {
     void OnTriggerEnter2D(Collider2D col)
     {
-        SceneManager.LoadScene(2); //this should be the index of the scene in the build settings
+		if(col.tag == "Player")
+		{
+			SceneManager.LoadScene(1); //this should be the index of the scene in the build settings
+		}
     }
 }
