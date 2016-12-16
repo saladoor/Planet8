@@ -8,50 +8,60 @@ public class RocketTurretController : MonoBehaviour
 
     private RocketController rc;
     private int refireCounter = 0;
-    private int refireTimer = 180;
-    public float rad = 0.8f;
+    private int refireTimer = 120;
+	private int disableRange = 15;
+	public float rad = 0.8f;
 
     // Use this for initialization
     void Start()
     {
         //Fire off a rocket
         fire();
-    }
+	}
 
     void Update()
     {
-        if (rc.dead) //If old rocket is dead, fire new one
-        {
-            refireCounter++;
-            if(refireCounter > refireTimer)
-            {
-                fire();
-                refireCounter = 0;
-            }
-        }
+		if(rc != null)
+		{
+			if (rc.dead) //If old rocket is dead, fire new one
+			{
+				refireCounter++;
+				if(refireCounter > refireTimer)
+				{
+					fire();
+					refireCounter = 0;
+				}
+			}
+		} else
+		{
+			fire();
+		}
     }
 
     private void fire()
     {
-		//Sounds!
-		GetComponent<AudioSource>().Play();
-
-		//Fire off a rocket
-		Vector2 spawnPos = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), player.position, rad);
-		float frontAngle = (Vector3.Angle(transform.up, player.transform.position - transform.position)); //Angle between player and turret
-		float rightAngle = (Vector3.Angle(transform.right, player.transform.position - transform.position));
-		float leftAngle = (Vector3.Angle(-transform.right, player.transform.position - transform.position));
-
-		if (rightAngle < leftAngle)
+		if (Mathf.Abs(player.position.x - transform.position.x) < disableRange && Mathf.Abs(player.position.y - transform.position.y) < disableRange)
 		{
-			frontAngle = -frontAngle;
+			//Sounds!
+			GetComponent<AudioSource>().Play();
+
+			//Fire off a rocket
+			Vector2 spawnPos = Vector2.MoveTowards(new Vector2(transform.position.x, transform.position.y), player.position, rad);
+			float frontAngle = (Vector3.Angle(transform.up, player.transform.position - transform.position)); //Angle between player and turret
+			float rightAngle = (Vector3.Angle(transform.right, player.transform.position - transform.position));
+			float leftAngle = (Vector3.Angle(-transform.right, player.transform.position - transform.position));
+
+			if (rightAngle < leftAngle)
+			{
+				frontAngle = -frontAngle;
+			}
+
+			Object inst = Instantiate(b, spawnPos, Quaternion.AngleAxis(frontAngle, transform.forward /*Quaternion.identity*/));
+			GameObject rocket = inst as GameObject;
+
+			//Save this rocket
+			rc = rocket.GetComponent<RocketController>();
+			rc.playerTrans = player;
 		}
-
-		Object inst = Instantiate(b, spawnPos, Quaternion.AngleAxis(frontAngle, transform.forward /*Quaternion.identity*/));
-        GameObject rocket = inst as GameObject;
-
-        //Save this rocket
-        rc = rocket.GetComponent<RocketController>();
-        rc.playerTrans = player;
     }
 }
