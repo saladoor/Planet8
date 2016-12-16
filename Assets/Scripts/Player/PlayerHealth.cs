@@ -13,8 +13,8 @@ public class PlayerHealth : MonoBehaviour
 
 
                                                                 // Reference to the Animator component.
-    bool isDead;                                                // Whether the player is dead.
-    bool damaged;                                               // True when the player gets damaged.
+    public bool isDead;                                                // Whether the player is dead.
+    public bool damaged;                                               // True when the player gets damaged.
     //PlaneController planeController;
 
     void Awake()
