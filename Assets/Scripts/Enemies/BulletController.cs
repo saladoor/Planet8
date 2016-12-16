@@ -14,7 +14,7 @@ public class BulletController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if(!(col.tag == "Player" || col.tag == "slowmo"))
+		if(!(/*col.tag == "Player" || */col.tag == "slowmo"))
 		{
 			rb.velocity = new Vector3(0f, 0f, 0f);
 			GetComponent<AudioSource>().Play();
@@ -36,7 +36,7 @@ public class BulletController : MonoBehaviour {
 	IEnumerator coDestroy(GameObject g)
     {
 		GetComponent<Animator>().SetBool("Dead", true); //Sets off the death animation
-		yield return new WaitForSeconds(0.5f); //8 (8/60) frames of animation later we move the plane
+		yield return new WaitForSeconds(0.3f); //8 (8/60) frames of animation later we move the plane
 
 		cc.transform.position = new Vector3(0f, 15f, 0f);
 

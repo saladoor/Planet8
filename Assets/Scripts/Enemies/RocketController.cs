@@ -25,10 +25,11 @@ public class RocketController : MonoBehaviour {
 
 	void OnTriggerEnter2D(Collider2D col)
 	{
-		if (!(col.tag == "Player" || col.tag == "slowmo" || dead))
+		if (!(/*col.tag == "Player" || */col.tag == "slowmo" || dead))
 		{
             dead = true;
 			rb.velocity = new Vector3(0f, 0f, 0f);
+			movespeed = 0;
 			GetComponent<AudioSource>().Play();
             IEnumerator c = coDestroy(this.gameObject);
             StartCoroutine(c);

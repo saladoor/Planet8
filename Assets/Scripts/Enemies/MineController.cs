@@ -4,7 +4,7 @@ using System.Collections;
 public class MineController : MonoBehaviour {
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (!(col.tag == "Player" || col.tag == "slowmo"))
+        if (!(/*col.tag == "Player" || */col.tag == "slowmo"))
         {
 			GetComponent<AudioSource>().Play();
             IEnumerator c = coDestroy(this.gameObject);
