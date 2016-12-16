@@ -22,7 +22,7 @@ public class SlowMoController : MonoBehaviour {
 
     void OnTriggerEnter2D(Collider2D col)
     {
-        if (col.gameObject.tag == "Threat")
+        if (col.gameObject.tag == "Threat" || col.gameObject.tag == "Mine")
         {
             threatsNearby++;
             Time.timeScale = slowDown;
@@ -33,7 +33,7 @@ public class SlowMoController : MonoBehaviour {
 
     void OnTriggerExit2D(Collider2D col)
     {
-		if (col.gameObject.tag == "Threat")
+		if (col.gameObject.tag == "Threat" || col.gameObject.tag == "Mine")
 		{
 			threatsNearby--;
 			if (threatsNearby < 1)

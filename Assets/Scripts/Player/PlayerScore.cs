@@ -4,9 +4,9 @@ using System.Collections;
 
 public class PlayerScore : MonoBehaviour
 {
-    public static int mineScore = 5;
-    public static int bulletScore = 10;
-    public static int rocketScore = 20;
+    public static int mineScore = 10;
+    public static int bulletScore = 20;
+    public static int rocketScore = 50;
 
     public static int score;        // The player's score.
 
