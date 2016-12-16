@@ -57,10 +57,11 @@ public class PlaneController : MonoBehaviour
 			Vector3 v = (new Vector3(Mathf.Cos(rotZ * Mathf.Deg2Rad), Mathf.Sin(rotZ * Mathf.Deg2Rad), 0))*secuMove;
 			transform.position = transPair.transform.position + v;
 		}
-        else if  (col.tag == "Threat")
+        if (col.gameObject.tag == "Threat" || col.gameObject.tag == "Mine")
         {
-            playerHealth.TakeDamage(15);
-            if(playerHealth.currentHealth < 0)
+            if (col.gameObject.tag == "Threat") { playerHealth.TakeDamage(15); }
+            else if (col.gameObject.tag == "Mine") { playerHealth.TakeDamage(30); }
+            if (playerHealth.currentHealth < 0)
             {
 				//GetComponent<AudioSource>().pitch = Time.timeScale;
 				GetComponent<AudioSource>().Play();
